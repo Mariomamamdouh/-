@@ -59,6 +59,8 @@ Future<void> _messageHandler(RemoteMessage message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+//  HttpOverrides.global = new MyHttpOverrides();
+
   await Firebase.initializeApp();
   await Session.init();
 
@@ -286,7 +288,7 @@ class _MyAppState extends State<MyApp> {
           navigatorKey: GlobalVariable.navState,
           debugShowCheckedModeBanner: false,
           locale: value.appLocal,
-          title: 'RevoShop',
+          title: 'Xedge',
           routes: <String, WidgetBuilder>{
             'HomeScreen': (BuildContext context) => HomeScreen(),
           },
@@ -380,8 +382,19 @@ class _MyAppState extends State<MyApp> {
             GlobalCupertinoLocalizations.delegate,
             CountryLocalizations.delegate,
           ],
-          home: HomeScreen()
-,        ),
+          home:Builder(
+            builder: (context) {
+              return FutureBuilder(
+                  future: DeeplinkConfig().initUniLinks(context),
+                  builder: (_, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Container();
+                    }
+                    return snapshot.data as Widget;
+                  });
+            },
+          ),
+                   ),
       ),
     );
   }

@@ -7,6 +7,8 @@ import 'package:nyoba/utils/currency_format.dart';
 import 'package:nyoba/utils/utility.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../../app_localizations.dart';
+
 class CardItem extends StatelessWidget {
   final ProductModel? product;
 
@@ -22,8 +24,8 @@ class CardItem extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ProductDetail(
-                      productId: product!.id.toString(),
-                    )));
+                  productId: product!.id.toString(),
+                )));
       },
       child: Container(
         margin: EdgeInsets.only(
@@ -40,44 +42,44 @@ class CardItem extends StatelessWidget {
             children: [
               Expanded(
                   child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1 / 1,
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(5),
-                            topLeft: Radius.circular(5)),
-                      ),
-                      child: product!.images!.isEmpty
-                          ? Icon(
-                              Icons.image_not_supported,
-                              size: 50,
-                            )
-                          : CachedNetworkImage(
-                              imageUrl: product!.images![0].src!,
-                              placeholder: (context, url) => customLoading(),
-                              errorWidget: (context, url, error) => Icon(
-                                Icons.image_not_supported_rounded,
-                                size: 25,
-                              ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 1 / 1,
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                topLeft: Radius.circular(5)),
+                          ),
+                          child: product!.images!.isEmpty
+                              ? Icon(
+                            Icons.image_not_supported,
+                            size: 50,
+                          )
+                              : CachedNetworkImage(
+                            imageUrl: product!.images![0].src!,
+                            placeholder: (context, url) => customLoading(),
+                            errorWidget: (context, url, error) => Icon(
+                              Icons.image_not_supported_rounded,
+                              size: 25,
                             ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 3, horizontal: 5),
-                    child: Text(
-                      product!.productName!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: responsiveFont(10)),
-                      textScaleFactor: 1.0,
-                    ),
-                  ),
-                ],
-              )),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 3, horizontal: 5),
+                        child: Text(
+                          product!.productName!,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: responsiveFont(10)),
+                          textScaleFactor: 1.0,
+                        ),
+                      ),
+                    ],
+                  )),
               Container(
                 alignment: Alignment.bottomCenter,
                 margin: EdgeInsets.symmetric(vertical: 3, horizontal: 5),
@@ -116,11 +118,11 @@ class CardItem extends StatelessWidget {
                                       TextSpan(
                                           text:
 
-                                                  product!.productRegPrice.toString(),
+                                          product!.productRegPrice.toString(),
 
                                           style: TextStyle(
                                               decoration:
-                                                  TextDecoration.lineThrough,
+                                              TextDecoration.lineThrough,
                                               fontSize: responsiveFont(9),
                                               color: HexColor("C4C4C4"))),
                                     ],
@@ -131,45 +133,44 @@ class CardItem extends StatelessWidget {
                           ),
                           product!.type == 'simple'
                               ? RichText(
-                                  text: TextSpan(
-                                    style: TextStyle(color: Colors.black),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                          text:
-
-                                                  product!.productPrice.toString(),
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: responsiveFont(11),
-                                              color: secondaryColor)),
-                                    ],
-                                  ),
-                                )
+                            text: TextSpan(
+                              style: TextStyle(color: Colors.black),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text:
+                                    product!.productPrice.toString()+" "+ "${AppLocalizations.of(context)!.translate('EGP')} ",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: responsiveFont(11),
+                                        color: secondaryColor)),
+                              ],
+                            ),
+                          )
                               : RichText(
-                                  text: TextSpan(
-                                    style: TextStyle(color: Colors.black),
-                                    children: <TextSpan>[
-                                      product!.variationPrices!.isEmpty
-                                          ? TextSpan(
-                                              text: '',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: responsiveFont(11),
-                                                  color: secondaryColor))
-                                          : TextSpan(
-                                              text: product!.variationPrices!
-                                                          .first ==
-                                                      product!
-                                                          .variationPrices!.last
-                                                  ? '${stringToCurrency(product!.variationPrices!.first!, context)}'
-                                                  : '${stringToCurrency(product!.variationPrices!.first!, context)} - ${stringToCurrency(product!.variationPrices!.last!, context)}',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: responsiveFont(11),
-                                                  color: secondaryColor)),
-                                    ],
-                                  ),
-                                ),
+                            text: TextSpan(
+                              style: TextStyle(color: Colors.black),
+                              children: <TextSpan>[
+                                product!.variationPrices!.isEmpty
+                                    ? TextSpan(
+                                    text: '',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: responsiveFont(11),
+                                        color: secondaryColor))
+                                    : TextSpan(
+                                    text: product!.variationPrices!
+                                        .first ==
+                                        product!
+                                            .variationPrices!.last
+                                        ? '${stringToCurrency(product!.variationPrices!.first!, context)}'" "+ "${AppLocalizations.of(context)!.translate('EGP')} "
+                                        : '${stringToCurrency(product!.variationPrices!.first!, context)} - ${stringToCurrency(product!.variationPrices!.last!, context)}'" "+ "${AppLocalizations.of(context)!.translate('EGP')} ",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: responsiveFont(11),
+                                        color: secondaryColor)),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),

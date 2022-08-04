@@ -157,7 +157,7 @@
   "sign_in": "Sign in with",
   "create_account": "Create New Account",
   "subtitle_create_account": "Please register to create a new account",
-  "term_condition_sign_up": "I Agree with Privacy, Terms and Conditions",
+  "term_condition_sign_up": "I Agree with Privacy",
   "have_account": "Already have an account?",
   "title_otp": "Welcome! Please input your mobile number for access the apps.",
   "hint_otp": "Your mobile number doesn't seem right.",
@@ -197,6 +197,7 @@
   "done" : "Done",
   "username" : "Username",
   "password" : "Password",
+  "EGP": "EGP",
   "sign_in_otp" : "Sign In With OTP",
   "active" : "Active",
   "search_here" : "Search Product Here",
@@ -227,5 +228,8 @@
   "banner_2": "Love These Items",
   "recent_view": "Recently Viewed Products",
   "title_hap_3": "Recommendations For You",
-  "description_hap_3": "Recommendation Products"
+  "description_hap_3": "Recommendation Products",
+  "delete Account": "delete Account",
+  "delete account title": "Are you sure?",
+  "delete account body": "Do you want to delete your account?"
 }

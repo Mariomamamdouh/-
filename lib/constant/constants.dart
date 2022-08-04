@@ -1,9 +1,9 @@
 import 'package:nyoba/services/base_woo_api.dart';
 
 String appId = '1590795778';
-String url = "https://kotobyonline.com";
-String consumerKey = "ck_ea0f159c6a614e93cebb8d77134d7556f9bb654c";
-String consumerSecret = "cs_a2e935b877a4bc86549c6f7fb1280c85c2dde8b9";
+String url = "https://only-cotton.com";
+String consumerKey = "ck_f66817fb5b306d0056119f45e17e689633869cfa";
+String consumerSecret = "cs_6ffca43f0ac1356a6d788c28c5f24b20303b70c0";
 
 // String version = '2.5.6';
 

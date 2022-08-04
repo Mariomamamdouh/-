@@ -232,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen>
                           14)),
                 ),
               ),
-              Expanded(
+            /*  Expanded(
                   flex: 2,
                   child: InkWell(
                     onTap: () {
@@ -251,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen>
                             AppLocalizations.of(context)!.translate('blog')!,
                             28,
                             14)),
-                  )),
+                  )),*/
               Expanded(
                   flex: 2,
                   child: InkWell(

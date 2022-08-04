@@ -227,5 +227,9 @@
     "banner_2": "منتجات تحبونها",
     "recent_view": "المنتجات المعروضة مؤخرا",
     "title_hap_3": "توصيات بالنسبة لك",
-    "description_hap_3": "منتجات التوصية"
+    "description_hap_3": "منتجات التوصية",
+    "EGP": "جنيه",
+    "delete Account": "حذف الحساب",
+    "delete account body": "هل تريد حذف الحساب؟",
+    "delete account title": "هل انت واثق؟"
 }

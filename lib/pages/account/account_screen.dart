@@ -54,19 +54,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   logout() async {
     final home = Provider.of<HomeProvider>(context, listen: false);
-    var auth = FirebaseAuth.instance;
-    final AccessToken? accessToken = await FacebookAuth.instance.accessToken;
-
     Session().removeUser();
-    if (auth.currentUser != null) {
-      await GoogleSignIn().signOut();
-    }
-    if (accessToken != null) {
-      await FacebookAuth.instance.logOut();
-    }
-    if (Session.data.getString('login_type') == 'apple') {
-      await auth.signOut();
-    }
     home.isReload = true;
     await Navigator.pushAndRemoveUntil(
         context,
@@ -328,6 +316,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 func: () {
               _launchPhoneURL(generalSettings.phone.description!);
             }),
+            accountButton(
+                "deleteaccount", AppLocalizations.of(context)!.translate('delete Account')!,
+                func: delteAccountPopDialog),
             accountButton(
                 "logout", AppLocalizations.of(context)!.translate('logout')!,
                 func: logoutPopDialog),
@@ -596,4 +587,110 @@ class _AccountScreenState extends State<AccountScreen> {
           )),
     );
   }
+
+  delteAccountPopDialog() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+          contentPadding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+          insetPadding: EdgeInsets.all(0),
+          content: Builder(
+            builder: (context) {
+              return Container(
+                height: 150.h,
+                width: 330.w,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!
+                              .translate('delete account title')!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: responsiveFont(14),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!
+                              .translate('delete account body')!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: responsiveFont(12),
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                    Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              color: Colors.black12,
+                              height: 2,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: GestureDetector(
+                                    onTap: () => Navigator.of(context).pop(false),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(vertical: 12),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(15)),
+                                          color: primaryColor),
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .translate('no')!,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: GestureDetector(
+                                    onTap: () => logout(),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(vertical: 12),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(15)),
+                                          color: Colors.white),
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .translate('yes')!,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            color: primaryColor),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
+              );
+            },
+          )),
+    );
+  }
+
 }

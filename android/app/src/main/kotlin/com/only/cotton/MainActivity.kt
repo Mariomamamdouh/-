@@ -1,4 +1,4 @@
-package com.revoapps.woocommerce
+package com.only.cotton
 
 import io.flutter.embedding.android.FlutterActivity
 
