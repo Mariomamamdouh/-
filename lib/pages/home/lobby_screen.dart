@@ -408,7 +408,7 @@ class _LobbyScreenState extends State<LobbyScreen>
                                         children: [
                                           Flexible(
                                             child: Text(
-                                              home.logo.title!,
+                                              "ع طاير",
                                               style: TextStyle(
                                                   fontSize: responsiveFont(14),
                                                   fontWeight: FontWeight.bold,

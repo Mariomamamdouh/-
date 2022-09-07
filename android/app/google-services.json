@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "1011665637922",
-    "project_id": "only-cotton",
-    "storage_bucket": "only-cotton.appspot.com"
+    "project_number": "1041328546196",
+    "project_id": "alttayer-b3f62",
+    "storage_bucket": "alttayer-b3f62.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1011665637922:android:35534fbd74ae71d7e6f07b",
+        "mobilesdk_app_id": "1:1041328546196:android:a29f0fe53156fadab7ef81",
         "android_client_info": {
-          "package_name": "com.only.cotton"
+          "package_name": "com.alttayer.com"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1011665637922-d8l3a2f8oaaphct8re0tq2qqm6g98dvl.apps.googleusercontent.com",
+          "client_id": "1041328546196-207p79n0lkl2g8kjjekd4v7r4a4d8pdb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBaNVROu6U5C0YlxPK1HPgQYq0eU-X1bqY"
+          "current_key": "AIzaSyCeAbgFqRQGHuGHAX3fHkoF3r7fPliN0x4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1011665637922-d8l3a2f8oaaphct8re0tq2qqm6g98dvl.apps.googleusercontent.com",
+              "client_id": "1041328546196-207p79n0lkl2g8kjjekd4v7r4a4d8pdb.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "1011665637922-fdrn5fh9cpuifcedunjp79gffes9lf5m.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.only.cotton"
-              }
             }
           ]
         }

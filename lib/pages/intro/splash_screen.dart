@@ -141,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final home = Provider.of<HomeProvider>(context, listen: false);
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
         body: home.loading
             ? Container()
             : loadHomeSuccess

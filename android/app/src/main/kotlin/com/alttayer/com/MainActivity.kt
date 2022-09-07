@@ -1,4 +1,4 @@
-package com.only.cotton
+package com.alttayer.com
 
 import io.flutter.embedding.android.FlutterActivity
 
